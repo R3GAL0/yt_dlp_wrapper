@@ -1,11 +1,11 @@
 from yt_dlp import YoutubeDL
 import platform
 
-URLS = ['https://www.youtube.com/shorts/87_NPqV9ZEk']
-form = 'mp4'
-location = ''
+# URL = 'https://www.youtube.com/shorts/87_NPqV9ZEk'
+# form = 'mp4'
+# location = ''
 
-def yt_dl(URLS, form, location):
+def yt_dl(URL, form, location):
     '''
     Input:
         URLS = [] of youtube url strings
@@ -41,10 +41,10 @@ def yt_dl(URLS, form, location):
         }
 
     with YoutubeDL(ydl_opts) as ydl:
-        res = ydl.download(URLS)
-    
-    return res.get('title')
+        info = ydl.extract_info(URL, download=True)
+        
+    return info.get('title')
 
 if __name__ == "__main__":
-    yt_dl(URLS, form, location)
+    yt_dl(URL, form, location)
     

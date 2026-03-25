@@ -1,7 +1,10 @@
-Uses yt-dlp to download youtube sounds from a video and convert to mp3 format.
-Bundeled as an exe to work locally on windows
+
+Uses yt-dlp to download youtube audio/video from a video and convert to mp3/mp4 format.
+Bundeled as an exe to work locally on Windows, Linux, and Mac
 GUI made with tkinter
 
 
-location picker -> defaults to users/downloads folder
--> ADD mp4 covnersion?
+To bundle app:
+- pip install -r requirements.txt
+- pyinstaller --onefile --noconsole gui.py
+(exe will be saved in ./dist)
