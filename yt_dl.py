@@ -1,5 +1,3 @@
-
-
 from yt_dlp import YoutubeDL
 import platform
 
@@ -13,6 +11,8 @@ def yt_dl(URLS, form, location):
         URLS = [] of youtube url strings
         form = 'mp3' or 'mp4'
         location = '' or other save location. Default to Downloads
+    Output:
+        Sring - filename
     '''
     # detect host system and set default to Downloads folder
     if not location and platform.system() == 'Windows':
@@ -41,6 +41,10 @@ def yt_dl(URLS, form, location):
         }
 
     with YoutubeDL(ydl_opts) as ydl:
-        ydl.download(URLS)
+        res = ydl.download(URLS)
+    
+    return res.get('title')
 
-# yt_dl(URLS, 'mp3', '')
+if __name__ == "__main__":
+    yt_dl(URLS, form, location)
+    
